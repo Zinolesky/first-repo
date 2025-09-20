@@ -6,22 +6,22 @@ hangman_art = {
     0: ("   ",
         "   ",
         "   "),
-    1: (" o ",
+    1: ("O ",
         "   ",
         "   "),
-    2: (" o ",
+    2: ("O ",
         " | ",
         "   "),
-    3: (" o ",
+    3: ("O ",
         "/| ",
         "   "),
-    4: (" o ",
+    4: ("O ",
         "/|\\",
         "   "),
-    5: (" o ",
+    5: ("O ",
         "/|\\",
         "/  "),
-    6: (" o ",
+    6: ("O ",
         "/|\\",
         "/ \\")}
 
@@ -47,7 +47,7 @@ def main():
     is_running = True
     no_of_plays = 0
     no_of_wins = 0
-    no_of_loss = 0
+    no_of_losses = 0
 
     while is_running:
         display_man(wrong_guesses)
@@ -83,28 +83,33 @@ def main():
             wrong_guesses = 0
             guessed_letters = set()
 
-            if input("Play again? (Y/N): ").upper() != "Y":
+            if input("Play again? (Y/N): ").lower() != "y":
                 is_running = False
+
+                print()
+                print(f"Number of games: {no_of_plays:>14}")
+                print(f"Number of wins: {no_of_wins:>18}")
+                print(f"Number of losses: {no_of_losses:>15}")
 
         elif wrong_guesses >= len(hangman_art) - 1:
             display_man(wrong_guesses)
             display_answer(answer)
             print("You lose")
             no_of_plays += 1
-            no_of_loss += 1
+            no_of_losses += 1
 
             answer = random.choice(words)
             hint = ["_"] * len(answer)
             wrong_guesses = 0
             guessed_letters = set()
 
-            if input("Play again? (Y/N): ").upper() != "Y":
+            if input("Play again? (Y/N): ").lower() != "y":
                 is_running = False
 
-            print()
-            print(f"Number of games: {no_of_plays:>15}")
-            print(f"Number of wins {no_of_wins:>16}")
-            print(f"Number of losses {no_of_loss:>14}")
+                print()
+                print(f"Number of games: {no_of_plays:>14}")
+                print(f"Number of wins: {no_of_wins:>18}")
+                print(f"Number of losses: {no_of_losses:>15}")
 
 
 if __name__ == "__main__":

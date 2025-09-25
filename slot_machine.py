@@ -81,11 +81,11 @@ def main():
         if input("Play again? (Y/N): ").upper() != "Y":
             break
 
-    print("--------------------")
+    print("---------------------------")
     print(f"Number of wins: {wins}")
     print(f"Earnings: ₦{profit}")
-    print(f"Balance: ₦{balance}")
-    print("--------------------")
+    print(f"Balance:  ₦{balance}")
+    print("---------------------------6")
 
 
 if __name__ == '__main__':

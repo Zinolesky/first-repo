@@ -1,6 +1,16 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QLabel, QPushButton, QWidget, QVBoxLayout, QHBoxLayout
 from PyQt5.QtCore import QTime, QTimer, Qt
+from PyQt5.QtGui import QIcon
+
+
+def format_time(time):
+    hours = time.hour()
+    minutes = time.minute()
+    seconds = time.second()
+    milliseconds = time.msec() // 10
+    return f"{hours:02}:{minutes:02}:{seconds:02}.{milliseconds:02}"
+
 
 class StopWatch(QWidget):
     def __init__(self):
@@ -15,6 +25,7 @@ class StopWatch(QWidget):
 
     def initUI(self):
         self.setWindowTitle("Stopwatch")
+        self.setWindowIcon(QIcon("Images and icons/stopwatch.png"))
         self.setFixedSize(400, 200)
 
         vbox = QVBoxLayout()
@@ -57,18 +68,12 @@ class StopWatch(QWidget):
     def reset(self):
         self.timer.stop()
         self.time = QTime(0, 0, 0, 0)
-        self.time_label.setText(self.format_time(self.time))
-
-    def format_time(self, time):
-        hours = time.hour()
-        minutes = time.minute()
-        seconds = time.second()
-        milliseconds = time.msec() // 10
-        return f"{hours:02}:{minutes:02}:{seconds:02}.{milliseconds:02}"
+        self.time_label.setText(format_time(self.time))
 
     def show_time(self):
         self.time = self.time.addMSecs(10)
-        self.time_label.setText(self.format_time(self.time))
+        self.time_label.setText(format_time(self.time))
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

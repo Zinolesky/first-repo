@@ -1,7 +1,6 @@
 # Rock Paper Scissors game
 
 import random
-from tkinter import FALSE
 
 options = ("Rock", "Paper", "Scissors")
 player_score = 0

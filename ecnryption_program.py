@@ -1,6 +1,5 @@
 import random
 import string
-from tokenize import PlainToken
 
 chars = " " + string.punctuation + string.digits + string.ascii_letters
 chars = list(chars)
@@ -20,7 +19,6 @@ for letter in plain_text:
 
 print(f"Original message : {plain_text}")
 print(f"Encrypted message: {cypher_text}")
-
 
 # Decrypt
 cypher_text = input("Enter a message to decrypt: ")

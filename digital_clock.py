@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout
 from PyQt5.QtCore import QTime, QTimer, Qt
 from PyQt5.QtGui import QIcon
 
+
 class DigitalCLock(QWidget):
     def __init__(self):
         super().__init__()
@@ -13,7 +14,7 @@ class DigitalCLock(QWidget):
     def initUI(self):
         self.setWindowTitle("Digital Clock")
         self.setFixedSize(300, 100)
-        self.setWindowIcon(QIcon("clock.png"))
+        self.setWindowIcon(QIcon("Images and icons/clock.png"))
 
         vbox = QVBoxLayout()
         vbox.addWidget(self.time_label)

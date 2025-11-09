@@ -26,7 +26,7 @@ print(second_sentence)
 print(third_sentence)
 print(fourth_sentence)
 
-time.sleep(6)
+time.sleep(10)
 
 print("##################################")
 print(fifth_sentence)
